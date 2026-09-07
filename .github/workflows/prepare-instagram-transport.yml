@@ -42,7 +42,7 @@ jobs:
       - name: Commit changed transport files
         shell: bash
         run: |
-          if git diff --quiet -- transport/; then
+          if [ -z "$(git status --porcelain -- transport/)" ]; then
             echo "No transport changes to commit."
             exit 0
           fi
