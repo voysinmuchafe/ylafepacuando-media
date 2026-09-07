@@ -73,6 +73,7 @@ def test_transport_workflow_is_png_only_and_cannot_publish():
     assert 'published/*.png' in workflow
     assert "contents: write" in workflow
     assert "scripts/prepare_transport.py" in workflow
+    assert "git status --porcelain -- transport/" in workflow
     assert "OPENAI_API_KEY" not in workflow
     assert "INSTAGRAM_ACCESS_TOKEN" not in workflow
     assert "media_publish" not in workflow
